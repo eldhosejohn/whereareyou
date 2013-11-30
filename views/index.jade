@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  h2 Enter channel name & lat,long
+  
+  form(method='post',action='/location/')
+        label(for='name') Name:
+        input(type='text', name='name',id='name')        
+        label(for='latlong') Lat,Long:
+        input(type='text',name='latlong',id='latlong')  
+        input(type='submit',name='submit',value='Send').submit-button
+  
