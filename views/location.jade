@@ -10,4 +10,10 @@ block content
         label(for='latlong') Lat,Long:
         input(type='text',name='latlong',id='latlong')  
         input(type='submit',name='submit',value='Send').submit-button
+
+  h2 Enter channel
   
+  form(method='post',action='/users/')
+        label(for='name') Name:
+        input(type='text', name='name',id='name')     
+        input(type='submit',name='Start',value='Send').submit-button
