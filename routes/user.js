@@ -4,7 +4,32 @@
  */
 
 exports.list = function(req, res){
-  res.send("respond with a resource");
+      var response;
+  	var mysql      = require('mysql');
+	var connection = mysql.createConnection({
+		host     : 'localhost',
+		user     : 'root',
+		password : '',
+		database : "way",
+	});
+	connection.connect(function(err) {
+		if(!err){
+			connection.query('SELECT * from users', function(err, rows) {
+				console.log(rows);
+  res.writeHead(200, {"Content-Type": "application/json"});
+var json = JSON.stringify(rows);
+console.log(json)
+res.end(json);
+
+			});
+		} else
+			console.log(err);
+	// connected! (unless `err` is set)
+	});
+        
+        
+        
+
 };
 
 exports.locationscript = function(req,res){
@@ -35,7 +60,7 @@ exports.create = function(req, res){
 	var connection = mysql.createConnection({
 		host     : 'localhost',
 		user     : 'root',
-		password : 'fyogi',
+		password : '',
 		database : "way",
 	});
 	connection.connect(function(err) {

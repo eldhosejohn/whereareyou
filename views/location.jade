@@ -2,11 +2,13 @@ extends layout
 
 block content
   h1= title
-  h2 Enter channel name & lat,long
+  h2 Enter your name, username & lat,long
   
   form(method='post',action='/location/')
         label(for='name') Name:
-        input(type='text', name='name',id='name')        
+        input(type='text', name='name',id='name')
+        label(for='username') UserName:
+        input(type='text', name='username',id='username') 
         label(for='latlong') Lat,Long:
         input(type='text',name='latlong',id='latlong')  
         input(type='submit',name='submit',value='Send').submit-button
