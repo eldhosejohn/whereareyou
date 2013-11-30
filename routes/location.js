@@ -1,6 +1,10 @@
 
+exports.index = function(req, res){
+  res.render('location', { title: 'Where are you ??' });
+}
 
 exports.update = function(req, res){
+  
   var Pusher = require('pusher');
 
 var pusher = new Pusher({
@@ -9,8 +13,10 @@ var pusher = new Pusher({
   secret: '08db0f27a3aa31072ebe'
 });
 
-pusher.trigger('test_channel', 'my_event', {
-  "message": req.body.name
+pusher.trigger(req.body.name, 'my_event', {
+  "message": req.body.latlong
 });
-    
+
+      res.render('location', { title: 'Where are you ??' });
+
 }

@@ -4,5 +4,6 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Where are you ??' });
+  res.sendfile('./views/home.html')
+  //res.render('index', { title: 'Where are you ??' });
 };

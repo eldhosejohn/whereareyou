@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<head>
+  <title>Where are you</title>
+  <script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    
+    function subscribe() {
+        var pusher = new Pusher('a3b9815a5a174314966b');
+        var channel_name = document.getElementById("channel_name").value;
+        var channel = pusher.subscribe(channel_name);
+        channel.bind('my_event', function(data) {
+            var messages = document.getElementById("messages");
+            messages.innerHTML += '<div>' + data.message + '</div>';
+            });
+    }
+    // Enable pusher logging - don't include this in production
+    /*Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    */
+
+  </script>
+</head>
+
+<body>
+    <label for="channel_name">Enter the channel name</label>
+    <input type="text" id="channel_name" name="channel_name"/>
+    <input type="button" value="subscribe" onclick="subscribe();"/>
+    
+    
+    <div id="messages"></div>
+</body>
+
+
+
+
+
